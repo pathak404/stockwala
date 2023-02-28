@@ -1,0 +1,195 @@
+{
+    "US_STOCK": [
+        {
+            "symbol": "AAPL",
+            "name": "Apple Inc",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/AAPL.png"
+        },
+        {
+            "symbol": "GOOG",
+            "name": "Alphabet Inc",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/GOOG.png"
+        },
+        {
+            "symbol": "ABNB",
+            "name": "Airbnb Inc",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/ABNB.png"
+        },
+        {
+            "symbol": "ABT",
+            "name": "Abbott Laboratories",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/ABT.png"
+        },
+        {
+            "symbol": "TWI",
+            "name": "Titan International Inc",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/TWI.png"
+        },
+        {
+            "symbol": "TTM",
+            "name": "Tata Motors Ltd",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/TTM.png"
+        },
+        {
+            "symbol": "TSLA",
+            "name": "Tesla Inc",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/TSLA.png"
+        },
+        {
+            "symbol": "EBAY",
+            "name": "eBay Inc",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/EBAY.png"
+        },
+        {
+            "symbol": "GPRK",
+            "name": "Geopark Ltd",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/GPRK.png"
+        },
+        {
+            "symbol": "UNP",
+            "name": "Union Pacific Corp",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/stock/logo/UNP.png"
+        }
+    ],
+
+
+    "IND_STOCK": [
+        {
+            "symbol": "3MINDIA",
+            "name": "3M India Limited"
+        },
+        {
+            "symbol": "5PAISA",
+            "name": "5paisa Capital Limited"
+        },
+        {
+            "symbol": "ABCAPITAL",
+            "name": "Aditya Birla Capital Limited"
+        },
+        {
+            "symbol": "ACC",
+            "name": "ACC Limited"
+        },
+        {
+            "symbol": "AIRTELPP",
+            "name": "Bharti Airtel Ltd."
+        },
+        {
+            "symbol": "HCL.INSYS",
+            "name": "HCL Infosystems Limited"
+        },
+        {
+            "symbol": "HDFCBANK",
+            "name": "HDFC Bank Limited"
+        },
+        {
+            "symbol": "NESTLEIND",
+            "name": "Nestle India Limited"
+        },
+        {
+            "symbol": "NTPC",
+            "name": "NTPC Limited"
+        },
+        {
+            "symbol": "AADIIND",
+            "name": "Aadi Industries Limited"
+        }
+    ],
+
+    "FOREX": [
+        {
+            "name": "United States Dollar / Indian Rupee",
+            "symbol": "USDINR"
+        },
+        {
+            "name": "Australian Dollar / Chinese Yuan ",
+            "symbol": "AUDCNH"
+        },
+        {
+            "name": "Australian Dollar / United States Dollar",
+            "symbol": "AUDUSD"
+        },
+        {
+            "name": "Russian Rouble / Australian Dollar ",
+            "symbol": "RUBAUD"
+        },
+        {
+            "name": "United States Dollar / Indian Rupee",
+            "symbol": "USDINR"
+        },
+        {
+            "name": "Swedish Krona - Indian Rupee",
+            "symbol": "SEKINR"
+        },
+        {
+            "name": "Singapore Dollar / Euro ",
+            "symbol": "SGDEUR"
+        },
+        {
+            "name": "Tunisian Dinar / United States Dollar",
+            "symbol": "TNDUSD"
+        },
+        {
+            "name": "Lesotho Loti / Pound Sterling",
+            "symbol": "LSLGBP"
+        },
+        {
+            "name": "Malawian Kwacha / South African Rand",
+            "symbol": "MWKZAR"
+        }
+    ],
+
+    "CRYPTO": [
+        {
+            "name": "Bitcoin",
+            "symbol": "BTC",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/cryptocurrency/128x128/bitcoin.png"
+        },
+        {
+            "name": "Ethereum",
+            "symbol": "ETH",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/cryptocurrency/128x128/ethereum.png"
+        },
+        {
+            "name": "Tether",
+            "symbol": "USDT",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/cryptocurrency/128x128/tether.png"
+        },
+        {
+            "name": "Cardano",
+            "symbol": "ADA",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/cryptocurrency/128x128/cardano.png"
+        },
+        {
+            "name": "Polygon",
+            "symbol": "MATIC",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/128x128/3890.png"
+        },
+        {
+            "name": "Binance USD",
+            "symbol": "BUSD",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/128x128/4687.png"
+        },
+        {
+            "name": "Dogecoin",
+            "symbol": "DOGE",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/cryptocurrency/128x128/dogecoin.png"
+        },
+        {
+            "name": "Solana",
+            "symbol": "SOL",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/cryptocurrency/128x128/solana.png"
+        },
+        {
+            "name": "Shiba INU",
+            "symbol": "SHIB",
+            "image": "https://s2.coinmarketcap.com/static/img/coins/128x128/5994.png"
+        },
+        {
+            "name": "Litecoin",
+            "symbol": "LTC",
+            "image": "https://finage.s3.eu-west-2.amazonaws.com/cryptocurrency/128x128/litecoin.png"
+        }
+    ]
+
+}
