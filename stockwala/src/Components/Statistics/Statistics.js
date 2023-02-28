@@ -126,7 +126,7 @@ function Statistics() {
 
     const initpredict = () => {
         try {
-            fetch(`http://64.227.137.58/${symbol}`)
+            fetch(`https://clgproject.thetagcode.com/${symbol}`)
                 .then((response) => {
                     return response.json()
                 }).then((result) => {
@@ -166,7 +166,7 @@ function Statistics() {
         let optionData = predictInit[opt]
         
         try {
-            fetch(`http://64.227.137.58/${symbol}/predict?open=${optionData[0]}&high=${optionData[1]}&low=${optionData[2]}&vol=${optionData[3]}`)
+            fetch(`https://clgproject.thetagcode.com/${symbol}/predict?open=${optionData[0]}&high=${optionData[1]}&low=${optionData[2]}&vol=${optionData[3]}`)
                 .then((response) => {
                     return response.json()
                 }).then((result) => {
