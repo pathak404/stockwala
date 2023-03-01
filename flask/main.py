@@ -10,6 +10,13 @@ import numpy as np
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
+@app.route("/", methods=["GET"])
+def message():
+    return onSuccess({"message": "Welcome 😋 (AN API for my collage project)"})
+
+
+
+
 @app.route("/<symbol>", methods=["GET"])
 def getData(symbol):
     end_date = date.today() #Y-m-d
@@ -21,7 +28,6 @@ def getData(symbol):
         formatedDataSet = formatData(data)
         last = formatedDataSet.tail(1)
         return onSuccess([last["Open"].to_list(), last["High"].to_list(), last["Low"].to_list(), last["Volume"].to_list()])
-
 
 
 
@@ -96,5 +102,6 @@ def onSuccess(data):
 
 if(__name__ == "__main__"):
     app.run()
+    # app.run(host='0.0.0.0')
 
 

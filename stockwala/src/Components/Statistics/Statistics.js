@@ -39,7 +39,7 @@ function Statistics() {
 
 
     const crypto_US_Socket = () => {
-        socket = new WebSocket('wss://ws.finnhub.io?token=cftc501r01qokdd06m8gcftc501r01qokdd06m90');
+        socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNHUB_TOKEN}`);
         // Connection opened -> Subscribe
         socket.addEventListener('open', function (event) {
             if (type === "CRYPTO") {
@@ -81,24 +81,23 @@ function Statistics() {
     const isMarketOpen = () => {
         let time = new Date()
         let hours = time.getHours()
-        let minutes = time.getMinutes()
         let day = time.getDay()
         if (day === 0 || day === 6) {
             return false;
         }
 
         if (type === "US_STOCK") {
-            return hours >= 19 && (hours <= 1 && minutes <= 30)
+            return hours >= 19 || hours <= 1
         }
         if (type === "IND_STOCK") {
-            return hours >= 9 && (hours <= 15 && minutes <= 30)
+            return hours >= 9 && hours <= 15
         }
     }
 
 
     const fetchOneDayData = () => {
         try {
-            fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=cftc501r01qokdd06m8gcftc501r01qokdd06m90`)
+            fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_TOKEN}`)
                 .then((response) => {
                     if (response.status === 429) {
                         toast.error("API Limit is exceeded 😥")
@@ -126,7 +125,7 @@ function Statistics() {
 
     const initpredict = () => {
         try {
-            fetch(`https://clgproject.thetagcode.com/${symbol}`)
+            fetch(`${process.env.REACT_APP_PREDICTION_API}/${symbol}`)
                 .then((response) => {
                     return response.json()
                 }).then((result) => {
@@ -166,7 +165,7 @@ function Statistics() {
         let optionData = predictInit[opt]
         
         try {
-            fetch(`https://clgproject.thetagcode.com/${symbol}/predict?open=${optionData[0]}&high=${optionData[1]}&low=${optionData[2]}&vol=${optionData[3]}`)
+            fetch(`${process.env.REACT_APP_PREDICTION_API}/${symbol}/predict?open=${optionData[0]}&high=${optionData[1]}&low=${optionData[2]}&vol=${optionData[3]}`)
                 .then((response) => {
                     return response.json()
                 }).then((result) => {
@@ -237,10 +236,10 @@ function Statistics() {
                                     <span>{liveData?.v}</span>
                                 </p>}
 
-                                {liveData?.o && <p className={`mb-1 ${type === "CRYPTO" ? 'd-none' : ''}`}>
+                                <p className={`mb-1 ${type === "CRYPTO" ? 'd-none' : ''}`}>
                                     <span className='fw-bold'>Market: </span>
                                     <span>{isMarketOpen() ? "Open" : "Closed"}</span>
-                                </p>}
+                                </p>
                             </div>}
                         </div>
                     </div>
