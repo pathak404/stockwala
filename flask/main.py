@@ -12,22 +12,27 @@ app.config['JSON_AS_ASCII'] = False
 
 @app.route("/", methods=["GET"])
 def message():
-    return onSuccess({"message": "Welcome 😋 (AN API for my collage project)"})
+    return onSuccess({"message": "Welcome 🙏"})
 
 
 
 
 @app.route("/<symbol>", methods=["GET"])
 def getData(symbol):
-    end_date = date.today() #Y-m-d
-    start_date = end_date - timedelta(days=6)  # Y-m-d
+    end_date = date.today()
+    start_date = end_date - timedelta(days=6)
     data = yf.download(symbol, start=start_date, end=end_date, progress=False)
     if(data.empty):
-        return onError({"message": "Unable to retrive market data / rate"})
+        return onError({"message": "Unable to retrive market data"})
     else:
         formatedDataSet = formatData(data)
         last = formatedDataSet.tail(1)
-        return onSuccess([last["Open"].to_list(), last["High"].to_list(), last["Low"].to_list(), last["Volume"].to_list()])
+        return onSuccess({ 
+                "open":   (last["Open"].to_list())[0],
+                "high":   (last["High"].to_list())[0],
+                "low":    (last["Low"].to_list())[0], 
+                "vol": (last["Volume"].to_list())[0] 
+            })
 
 
 
@@ -42,7 +47,7 @@ def index(symbol):
     if(symbol):
         dataSet = getHistoricalData(symbol)
         if(dataSet.empty):
-            return onError({"message": "Unable to retrive market data / rate"})
+            return onError({"message": "Unable to retrive market data"})
         else:
             formatedDataSet = formatData(dataSet)
             return mainModal(formatedDataSet, open, high, low, vol)
@@ -68,13 +73,13 @@ def mainModal(data, Open, High, Low, Volume):
     model.fit(xtrain, ytrain, batch_size=1, epochs=30)
     #features = [Open, High, Low, Volume]
     features = np.array([[Open, High, Low, Volume]])
-    return onSuccess({"prediction": model.predict(features).tolist()[0]})
+    return onSuccess({"prediction": (model.predict(features).tolist())[0]})
 
 
 
 def getHistoricalData(symbol):
-    end_date = date.today() #Y-m-d
-    start_date = end_date - timedelta(days=80)  # Y-m-d
+    end_date = date.today() 
+    start_date = end_date - timedelta(days=80) 
     return yf.download(symbol, start=start_date, end=end_date, progress=False)
 
 
@@ -91,8 +96,8 @@ def onError(message):
     return resp
 
 
-def onSuccess(data):
-    resp = jsonify({"status": 1, "data": data})
+def onSuccess(message):
+    resp = jsonify({"status": 1, "data": message})
     resp.headers.add('Access-Control-Allow-Origin', '*')
     return resp
 

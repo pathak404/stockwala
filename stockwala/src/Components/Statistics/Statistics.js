@@ -130,7 +130,7 @@ function Statistics() {
                     return response.json()
                 }).then((result) => {
                     if (result.status === 1) {
-                        setPredictOptions(result.data[0][0], result.data[1][0], result.data[2][0], result.data[3][0])
+                        setPredictOptions(result.data.open, result.data.high, result.data.low, result.data.vol)
                     } else {
                         toast.error(result.data.message)
                     }
@@ -161,7 +161,7 @@ function Statistics() {
         }
         setIsProgress(true)
         setPredictionResult(0)
-        const toastid = toast.loading("Promise is pending")
+        const toastid = toast.loading("Please Wait ...")
         let optionData = predictInit[opt]
         
         try {
@@ -170,8 +170,8 @@ function Statistics() {
                     return response.json()
                 }).then((result) => {
                     if (result.status === 1) {
-                        setPredictionResult(result.data?.prediction[0])
-                        toast.update(toastid, { render: "Promise resolved 👌", type: "success", isLoading: false, autoClose: true })
+                        setPredictionResult(result.data?.prediction)
+                        toast.update(toastid, { render: "Success", type: "success", isLoading: false, autoClose: true })
                     } else {
                         toast.update(toastid, { render: result.data.message, type: "error", isLoading: false, autoClose: true })
                     }
