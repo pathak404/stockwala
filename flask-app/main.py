@@ -8,12 +8,10 @@ import numpy as np
 
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
 
 @app.route("/", methods=["GET"])
 def message():
-    return onSuccess({"message": "Welcome 🙏"})
-
+    return onSuccess({"message": "Welcome :)"})
 
 
 
@@ -52,7 +50,7 @@ def index(symbol):
             formatedDataSet = formatData(dataSet)
             return mainModal(formatedDataSet, open, high, low, vol)
 
-    return onError({"message": "Invalid params 😥"})
+    return onError({"message": "Invalid params"})
 
 
 
@@ -68,10 +66,10 @@ def mainModal(data, Open, High, Low, Volume):
     model.add(LSTM(64, return_sequences=False))
     model.add(Dense(25))
     model.add(Dense(1))
-    # model.summary()
+
     model.compile(optimizer='adam', loss='mean_squared_error')
     model.fit(xtrain, ytrain, batch_size=1, epochs=30)
-    #features = [Open, High, Low, Volume]
+
     features = np.array([[Open, High, Low, Volume]])
     return onSuccess({"prediction": (model.predict(features).tolist())[0]})
 
