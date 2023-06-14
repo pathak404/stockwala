@@ -1,5 +1,12 @@
 # STOCKWALA
 
+![ReactJS >= 18.2](https://img.shields.io/badge/ReactJS-%3E%3D18.2-61DBFB)
+![Axios >= 1.2.2](https://img.shields.io/badge/Axios-%3E%3D1.2.2-fb015b)
+![RRD >= 6.6.2](https://img.shields.io/badge/RRD-%3E%3D6.6.2-blueviolet)
+![RTLB >= 2.3.10](https://img.shields.io/badge/RTLB-2.3.1-orange)
+![Build](https://img.shields.io/badge/test-pass-brightgreen)
+
+
 * A stock price prediction project.
 * Shows live price, if market is live.
 * Predict future price of a stock
